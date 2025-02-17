@@ -6,7 +6,7 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:07:32 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/10 09:19:30 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:17:11 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	quick_sort(t_list **stack)
 
 	biggest = get_biggest(*stack);
 	if (*stack == biggest)
-		ra(stack);
+		ra(stack, true);
 	else if ((*stack)->next == biggest)
-		rra(stack);
+		rra(stack, true);
 	if ((*stack)->data > (*stack)->next->data)
-		sa(stack);
+		sa(stack, true);
 }

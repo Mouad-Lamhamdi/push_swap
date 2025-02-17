@@ -6,7 +6,7 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:07:41 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/10 09:10:53 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:43:34 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,6 @@ t_list	*lstnew(int data)
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
-}
-
-void	lstaddfront(t_list **head, t_list *node)
-{
-	if (!head || !node)
-		return ;
-	node->next = *head;
-	node->prev = NULL;
-	if (*head)
-		(*head)->prev = node;
-	*head = node;
 }
 
 t_list	*lstlast(t_list *lst)

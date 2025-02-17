@@ -6,7 +6,7 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:07:05 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/10 09:07:08 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:18:39 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ void	move_to_top(t_list **stack, t_list *top_node, char stack_name)
 		if (stack_name == 'a')
 		{
 			if (top_node->top_half)
-				ra(stack);
+				ra(stack, true);
 			else
-				rra(stack);
+				rra(stack, true);
 		}
 		else if (stack_name == 'b')
 		{
 			if (top_node->top_half)
-				rb(stack);
+				rb(stack, true);
 			else
-				rrb(stack);
+				rrb(stack, true);
 		}
 	}
 }
@@ -51,8 +51,8 @@ void	min_to_top(t_list **stack)
 	while ((*stack)->data != get_smallest(*stack)->data)
 	{
 		if (get_smallest(*stack)->top_half)
-			ra(stack);
+			ra(stack, true);
 		else
-			rra(stack);
+			rra(stack, true);
 	}
 }

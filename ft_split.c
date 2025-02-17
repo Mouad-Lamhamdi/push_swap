@@ -6,13 +6,13 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:08:20 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/10 09:08:23 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/17 15:01:09 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	count_words(const char *s, char c)
+int	count_words(const char *s, char c)
 {
 	int	i;
 	int	words;
@@ -52,7 +52,7 @@ static void	*ft_strncpy(char *dest, char const *src, int n)
 	return (dest);
 }
 
-static void	ft_free(char **arr)
+void	ft_free(char **arr)
 {
 	int	i;
 
@@ -70,8 +70,8 @@ static char	**copy_alloc(const char *s, int words, char **arr, char c)
 	int			i;
 	int			len;
 
-	i = 1;
-	while (i <= words) // for later <= or <
+	i = 0;
+	while (i < words)
 	{
 		len = 0;
 		while (*s && *s == c)
@@ -87,7 +87,8 @@ static char	**copy_alloc(const char *s, int words, char **arr, char c)
 			ft_free(arr);
 			return (NULL);
 		}
-		ft_strncpy(arr[i++], s - len, len);
+		ft_strncpy(arr[i], s - len, len);
+		i++;
 	}
 	arr[i] = NULL;
 	return (arr);

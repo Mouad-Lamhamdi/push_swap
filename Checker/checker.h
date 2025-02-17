@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 09:08:12 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/17 15:19:27 by molamham         ###   ########.fr       */
+/*   Created: 2025/02/14 09:40:43 by molamham          #+#    #+#             */
+/*   Updated: 2025/02/14 09:40:57 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
+# include "../push_swap.h"
 
-long	ft_atoi(char *str)
-{
-	long	n;
-	int		sign;
+char	*get_next_line(int fd);
+char	*ft_strjoin(char *s1, char *s2);
+void	*ft_memcpy(void	*dest, const void *src, size_t n);
+char	*ft_strdup(const char *s);
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *str);
+void	apply(t_list **a, t_list **b);
 
-	n = 0;
-	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		n *= 10;
-		n += *str - 48;
-		if ((n * sign) > INT_MAX || (n * sign) < INT_MIN)
-			break ;
-		str++;
-	}
-	return (n * sign);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+#endif

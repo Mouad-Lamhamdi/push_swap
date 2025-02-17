@@ -6,7 +6,7 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:08:29 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/10 09:41:57 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:38:14 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_stack(t_list **a)
 	while (current)
 	{
 		tmp = current->next;
-		free(tmp);
+		free(current);
 		current = tmp;
 	}
 	*a = NULL;
@@ -39,7 +39,7 @@ int	ft_isdigit(int c)
 void	ft_error(t_list **a)
 {
 	free_stack(a);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

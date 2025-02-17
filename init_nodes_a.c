@@ -6,7 +6,7 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:07:25 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/10 09:18:24 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/14 09:40:12 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,16 @@ void	set_cheapest(t_list *stack)
 {
 	long	cheapest_value;
 	t_list	*cheapest_node;
+	t_list	*tmp;
 
 	if (!stack)
 		return ;
+	tmp = stack;
+	while (tmp)
+	{
+		tmp->cheapest = false;
+		tmp = tmp->next;
+	}
 	cheapest_value = LONG_MAX;
 	while (stack)
 	{
