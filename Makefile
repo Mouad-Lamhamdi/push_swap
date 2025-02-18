@@ -6,7 +6,7 @@
 #    By: molamham <molamham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 21:01:39 by molamham          #+#    #+#              #
-#    Updated: 2025/02/17 14:15:25 by molamham         ###   ########.fr        #
+#    Updated: 2025/02/18 14:32:29 by molamham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,20 +29,24 @@ all : $(NAME)
 $(NAME) : $(ARCHIVE)
 
 $(ARCHIVE) : $(OBJ)
+	@echo "push_swap compiled"
 
 %.o : %.c
 	@$(CC) -c $(FLAGS) $< -o $@
 	@ar rcs $(ARCHIVE) $@
-	@echo "push_swap compiled"
 
 bonus : all
 	@cd Checker && make
 
 clean :
 	@rm -rf $(OBJ)
+	@cd Checker && make clean
+	@echo "Clean"
 
 fclean : clean
 	@rm -rf $(NAME) $(ARCHIVE)
+	@rm -rf checker
+	@cd Checker && rm -rf checker
 
 re : fclean all
 

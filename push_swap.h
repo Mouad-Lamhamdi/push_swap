@@ -6,7 +6,7 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:07:57 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/17 16:31:04 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:33:12 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ typedef struct s_list
 	struct s_list	*prev;
 	struct s_list	*next;
 }	t_list;
-
-// to remove later
-void	print_stack(t_list **stack);
-t_list	*get_biggest(t_list *stack);
-void	reverse_rotate(t_list **stack);
-void	swap(t_list **stack);
-void	push(t_list **dest, t_list **src);
 
 // errors
 int		stack_sorted(t_list *stack);
@@ -87,5 +80,6 @@ void	init_nodes_a(t_list *a, t_list *b);
 void	init_nodes_b(t_list *a, t_list *b);
 void	push_a_to_b(t_list **a, t_list **b);
 void	push_b_to_a(t_list **a, t_list **b);
+t_list	*get_biggest(t_list *stack);
 
 #endif

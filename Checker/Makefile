@@ -13,21 +13,21 @@ OBJ = $(SRC:%.c=%.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(PUSH_SWAP_ARCHIVE)
-	$(CC) $^ -o $(NAME)
-	cp $(NAME) ../
+	@$(CC) $^ -o $(NAME)
+	@cp $(NAME) ../
 
 %.o : %.c
-	$(CC) -c $(FLAGS) $< -o $@
+	@$(CC) -c $(FLAGS) $< -o $@
 	
 $(PUSH_SWAP_ARCHIVE) :
-	cd ../ && make
+	@cd ../ && make
 
 clean :
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME)
-	cd ../ && rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@cd ../ && rm -rf $(NAME)
 
 re : fclean all
 
