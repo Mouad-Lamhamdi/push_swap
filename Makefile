@@ -1,53 +1,46 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: molamham <molamham@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/12 21:01:39 by molamham          #+#    #+#              #
-#    Updated: 2025/02/18 14:32:29 by molamham         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CC = @cc
 
 NAME = push_swap
 
-ARCHIVE = push_swap.a
+BNAME = checker
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror 
 
 SRC = errors.c ft_atoi.c ft_split.c init_nodes_a.c init_nodes_b.c linked_list.c push_swap.c \
 		quick_sort.c sort_stack.c stack_init.c stack_utils.c operations/push.c \
 		operations/rev_rotate.c operations/rotate.c operations/swap.c
 
+BSRC = Checker/checker.c Checker/checker_utils.c Checker/get_next_line.c Checker/get_next_line_utils.c \
+		errors.c ft_atoi.c ft_split.c init_nodes_a.c init_nodes_b.c linked_list.c \
+		quick_sort.c sort_stack.c stack_init.c stack_utils.c operations/push.c \
+		operations/rev_rotate.c operations/rotate.c operations/swap.c
+
 OBJ = $(SRC:%.c=%.o)
+
+BOBJ = $(BSRC:%.c=%.o)
 
 all : $(NAME)
 
-$(NAME) : $(ARCHIVE)
+$(NAME) : $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@echo "Push_swap compiled !"
+bonus : $(BNAME)
 
-$(ARCHIVE) : $(OBJ)
-	@echo "push_swap compiled"
+$(BNAME) : $(BOBJ)
+	$(CC) $(FLAGS) $(BOBJ) -o $(BNAME)
+	@echo "Checker compiled !"
 
 %.o : %.c
 	@$(CC) -c $(FLAGS) $< -o $@
-	@ar rcs $(ARCHIVE) $@
-
-bonus : all
-	@cd Checker && make
 
 clean :
-	@rm -rf $(OBJ)
-	@cd Checker && make clean
-	@echo "Clean"
+	@rm -rf $(OBJ) $(BOBJ)
+	@echo "Object files removed !"
 
 fclean : clean
-	@rm -rf $(NAME) $(ARCHIVE)
-	@rm -rf checker
-	@cd Checker && rm -rf checker
+	@rm -rf $(NAME) $(BNAME)
+	@echo "Executables removed !"
 
 re : fclean all
 
-.PHONY : all clean
+.PHONY : all bonus clean

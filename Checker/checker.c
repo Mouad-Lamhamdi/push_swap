@@ -6,11 +6,12 @@
 /*   By: molamham <molamham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:41:38 by molamham          #+#    #+#             */
-/*   Updated: 2025/02/17 16:31:34 by molamham         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:10:55 by molamham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include "../push_swap.h"
 
 int	main(int ac, char **av)
 {
